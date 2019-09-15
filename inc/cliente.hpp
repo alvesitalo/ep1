@@ -17,7 +17,6 @@ class Cliente {
     public:
         Cliente();
         ~Cliente();
-        Cliente(std::string cpf, std::string nome, int idade, std::string email, int socio);
 
         std::string get_cpf();
         std::string get_nome();
@@ -32,6 +31,10 @@ class Cliente {
         void set_email(std::string email);
         void set_socio(int socio);
         void add_categoria(std::string categoria);
+
+        bool cliente_existe(std::string cpf);
+        void add_cliente(std::string cpf, std::string nome, int idade, std::string email, int socio);
+        
 };
 
 #endif

@@ -1,0 +1,8 @@
+00001
+Produto 1
+84.53
+1
+categoria1
+categoria2
+-
+

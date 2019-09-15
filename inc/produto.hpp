@@ -7,27 +7,31 @@
 
 class Produto {
     private:
+        int id;
         std::string nome;
-        long long id;
         double preco;
-        std::vector<std::string> categorias;
         int quantidade;
+        std::vector<std::string> categorias;
 
     public:
         Produto();
+        Produto(int id, std::string nome, double preco, int quantidade, std::vector<std::string> categorias);
         ~Produto();
 
+        int get_id();
         std::string get_nome();
-        long long get_id();
         double get_preco();
-        std::vector<std::string> get_categorias();
         int get_quantidade();
+        std::vector<std::string> get_categorias();
         
+        void set_id(int id);
         void set_nome(std::string nome);
-        void set_id(long long id);
         void set_preco(double preco);
-        void add_categoria(std::string categoria);
         void set_quantidade(int quantidade);
+        void add_categoria(std::string categoria);
+
+        void listar_produtos(std::vector <Produto> &estoque);
+
 };
 
 #endif
