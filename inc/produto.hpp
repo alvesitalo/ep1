@@ -30,8 +30,6 @@ class Produto {
         void set_quantidade(int quantidade);
         void add_categoria(std::string categoria);
 
-        void listar_produtos(std::vector <Produto> &estoque);
-
 };
 
 #endif

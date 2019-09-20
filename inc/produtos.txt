@@ -1,0 +1,17 @@
+00001
+Bolo de aniversario
+50.00
+2
+alimentos
+doces
+festa
+-
+
+00001
+Refri Sem Acucar
+5.00
+3
+bebidas
+refrigerante
+festa
+-

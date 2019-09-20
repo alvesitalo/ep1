@@ -62,10 +62,10 @@ bool Cliente::cliente_existe(std::string cpf) {
 	int idade, socio;
 
     std::string varredura;
-	int cliente_existe;
+	int cliente_existe = 0;
 	
 	std::ifstream clientes_in;
-	clientes_in.open("doc/clientes.txt");
+	clientes_in.open("inc/clientes.txt");
 
 	if (clientes_in.is_open()) {
 		// O arquivo de clientes existe
@@ -105,7 +105,7 @@ bool Cliente::cliente_existe(std::string cpf) {
 void Cliente::add_cliente(std::string cpf, std::string nome, int idade, std::string email, int socio) {
 
 	std::ofstream clientes_out;
-	clientes_out.open("doc/clientes.txt", std::ios::app);
+	clientes_out.open("inc/clientes.txt", std::ios::app);
 
 	set_cpf(cpf);
     set_nome(nome);

@@ -1,6 +1,7 @@
 #include "cliente.hpp"
 #include "produto.hpp"
 #include "carrinho.hpp"
+#include "functions.hpp"
 
 void modo_venda(int &inicio) {
 	std::cout << "Modo Venda" << std::endl << std::endl;
@@ -53,16 +54,28 @@ void modo_venda(int &inicio) {
 				break;
 		}
 	}
-	
+
+	std::vector <Produto *> estoque;
+	carrega_produtos(estoque);
+
 	std::cout << "Cliente: " << pessoa.get_nome() << std::endl;
+	
+	if (pessoa.get_socio()) {
+		std::cout << "15% de desconto na compra" << std::endl;
+	}
+	
+	std::cout << std::endl;
+
+	imprime_produtos(estoque);
 }
 
 void modo_estoque(int &inicio) {
 	std::cout << "Modo Estoque" << std::endl << std::endl;
 
-	int id;
-	std::cout << "Insira o codigo do produto: ";
-	std::cin >> id;
+	std::vector <Produto *> estoque;
+	carrega_produtos(estoque);
+
+	imprime_produtos(estoque);
 
 	inicio = 0;
 }
