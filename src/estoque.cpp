@@ -1,0 +1,106 @@
+#include <iomanip>
+#include <fstream>
+
+#include "estoque.hpp"
+
+Estoque::Estoque() {
+	carrega_produtos();
+}
+Estoque::~Estoque(){}
+
+std::vector<Produto *> Estoque::get_produtos() {
+    return this->produtos;
+}
+
+void Estoque::add_produto(Produto * produto) {
+    this->produtos.push_back(produto);
+}
+
+void Estoque::carrega_produtos() {
+    std::string nome, cat;
+	int id, quantidade;
+	double preco;
+	std::vector<std::string> categorias;
+
+	std::ifstream produtos_in;
+	produtos_in.open("assets/produtos.txt");
+
+	if (produtos_in.is_open()) {
+		while (produtos_in >> id) {
+
+			produtos_in.ignore();
+			getline(produtos_in, nome);
+			
+			produtos_in >> preco >> quantidade >> cat;
+
+			categorias.clear();
+
+			while (cat != "-") {
+				categorias.push_back(cat);
+				produtos_in >> cat;
+			}
+
+			add_produto(new Produto(id, nome, preco, quantidade, categorias));
+		}
+	}
+	else {
+		std::cout << "Nao e possivel abrir o arquivo de produtos." << std::endl;
+	}
+	
+	produtos_in.close();
+}
+
+void Estoque::imprime_produtos() {
+    std::cout << "\tProdutos em estoque:" << std::endl << std::endl;
+
+	for (Produto * produto: get_produtos()) {
+        if (produto->get_estoque() > 0) {
+            std::cout << std::fixed << std::showpoint << std::setprecision(2)
+                    << "\t" << std::left << std::setw(30)
+                    << produto->get_nome()
+                    << "Valor: $" << std::setw(20)
+                    << produto->get_preco()
+                    << "Estoque: " << std::setw(20)
+                    << produto->get_estoque()
+                    << "ID: "
+                    << produto->get_id()
+                    << std::endl;
+        }
+	}
+
+	std::cout << std::endl;
+}
+
+void Estoque::atualiza_estoque() {
+	bool escrita_realizada = true;
+	
+	std::ofstream produtos_out;
+	produtos_out.open("assets/produtos.txt");
+
+	for (Produto * produto: get_produtos()) {
+		produto->set_estoque(produto->get_estoque() - produto->get_quantidade());
+		
+		if (produtos_out.is_open()) {
+			produtos_out << std::fixed << std::showpoint << std::setprecision(2)
+						 << produto->get_id() << std::endl
+						 << produto->get_nome() << std::endl
+						 << produto->get_preco() << std::endl
+						 << produto->get_estoque() << std::endl;
+
+			for (std::string cat: produto->get_categorias()) {
+				produtos_out << cat << std::endl;
+			}
+
+			produtos_out << "-" << std::endl << std::endl;
+		}
+		else {
+			escrita_realizada = false;
+		}
+	}
+
+	if (!escrita_realizada) {
+		std::cout << "Acesso negado ao tentar salvar." << std::endl;
+	}
+
+	produtos_out.close();
+}

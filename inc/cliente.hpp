@@ -4,6 +4,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
+#include <fstream>
+
+#include "produto.hpp"
 
 class Cliente {
     private:
@@ -11,29 +15,34 @@ class Cliente {
         std::string nome;
         int idade;
         std::string email;
-        int socio;
-        std::vector<std::string> categorias;
+        bool socio;
+        std::map<std::string, int> categorias;
 
     public:
         Cliente();
+        Cliente(std::string cpf, std::string nome, int idade, std::string email, bool socio,
+                std::map<std::string, int> categorias);
+        
         ~Cliente();
 
         std::string get_cpf();
         std::string get_nome();
         int get_idade();
         std::string get_email();
-        int get_socio();
-        std::vector<std::string> get_categorias();
+        bool is_socio();
+        std::map<std::string, int> get_categorias();
 
         void set_nome(std::string nome);
         void set_cpf(std::string cpf);
         void set_idade(int idade);
         void set_email(std::string email);
         void set_socio(int socio);
-        void add_categoria(std::string categoria);
+        void set_categorias(std::map<std::string, int> categorias);
 
-        bool cliente_existe(std::string cpf);
-        void add_cliente(std::string cpf, std::string nome, int idade, std::string email, int socio);
+        void add_categoria(std::string cat, int qnt);
+        void add_categoria(std::vector<Produto *> carrinho);
+        void add_cliente(std::string cpf, std::string nome, int idade, std::string email, bool socio);
+        void cadastro(std::string cpf);
         
 };
 

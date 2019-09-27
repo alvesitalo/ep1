@@ -1,20 +1,24 @@
-#include <vector>
-#include <iostream>
-#include <fstream>
-
 #include "cliente.hpp"
 
 Cliente::Cliente() {
-    this->cpf = "0000";
-    this->nome = "";
-    this->idade = 1;
-    this->email = "";
-    this->socio = 0;
-    this->categorias = {};
+    cpf = "0000";
+    nome = "Sem nome";
+    idade = 1;
+    email = "sem-nome@email.com";
+    socio = false;
+    categorias = {};
 }
-Cliente::~Cliente() {
+Cliente::Cliente(std::string cpf, std::string nome, int idade, std::string email, bool socio,
+				 std::map<std::string, int> categorias) {
+    this->cpf = cpf;
+    this->nome = nome;
+    this->idade = idade;
+    this->email = email;
+    this->socio = socio;
+    this->categorias = categorias;
+}
 
-}
+Cliente::~Cliente() {}
 
 std::string Cliente::get_cpf() {
     return this->cpf;
@@ -28,10 +32,10 @@ int Cliente::get_idade() {
 std::string Cliente::get_email() {
     return this->email;
 }
-int Cliente::get_socio() {
+bool Cliente::is_socio() {
     return this->socio;
 }
-std::vector<std::string> Cliente::get_categorias() {
+std::map<std::string, int> Cliente::get_categorias() {
     return this->categorias;
 }
 
@@ -51,71 +55,47 @@ void Cliente::set_email(std::string email) {
 }
 void Cliente::set_socio(int socio) {
     if (socio == 1)
-        this->socio = socio;
+        this->socio = true;
 }
-void Cliente::add_categoria(std::string categoria) {
-    this->categorias.push_back(categoria);
+void Cliente::set_categorias(std::map<std::string, int> categorias) {
+	this->categorias = categorias;
 }
 
-bool Cliente::cliente_existe(std::string cpf) {
-	std::string nome, email;
-	int idade, socio;
+void Cliente::add_categoria(std::string cat, int qnt) {
+	if (cat.size() > 1)
+    	this->categorias[cat] = qnt;
+}
 
-    std::string varredura;
-	int cliente_existe = 0;
-	
-	std::ifstream clientes_in;
-	clientes_in.open("inc/clientes.txt");
+void Cliente::add_categoria(std::vector<Produto *> carrinho) {
+	int cat_quantidade;
 
-	if (clientes_in.is_open()) {
-		// O arquivo de clientes existe
-		while (clientes_in >> varredura) {
-			if (varredura == cpf && varredura.size() > 3) {
-				clientes_in.ignore();
-				
-				getline(clientes_in, nome);
-				clientes_in >> idade >> email >> socio;
-
-				set_cpf(cpf);
-				set_nome(nome);
-				set_idade((int)idade);
-				set_email(email);
-				set_socio((int)socio);
-
-				cliente_existe = 1;
-				break;
-			}
-		}
-		
-		clientes_in.close();
-
-		if (cliente_existe) {
-			return true;
-		}
-		else {
-			return false;
+	for (Produto * produto: carrinho) {
+		for (std::string cat_produto: produto->get_categorias()) {
+			cat_quantidade = categorias[cat_produto] + produto->get_quantidade();
+			this->categorias[cat_produto] = cat_quantidade;
 		}
 	}
-	else {
-		// O arquivo nao existe, entao nenhum cliente existe tambem
-		return false;
-	}
 }
 
-void Cliente::add_cliente(std::string cpf, std::string nome, int idade, std::string email, int socio) {
+void Cliente::add_cliente(std::string cpf, std::string nome, int idade, std::string email, bool socio) {
+	socio = (int)socio;
 
 	std::ofstream clientes_out;
-	clientes_out.open("inc/clientes.txt", std::ios::app);
+	clientes_out.open("assets/clientes.txt", std::ios::app);
 
 	set_cpf(cpf);
     set_nome(nome);
-    set_idade((int)idade);
+    set_idade(idade);
     set_email(email);
-    set_socio((int)socio);
+    set_socio(socio);
 	
 	if (clientes_out.is_open()) {
-		clientes_out << cpf << std::endl << nome << std::endl << idade << std::endl 
-					 << email << std::endl << socio << std::endl << std::endl;
+		clientes_out << cpf << std::endl
+					 << nome << std::endl
+					 << idade << std::endl 
+					 << email << std::endl
+					 << socio << std::endl
+					 << "-" << " 0" << std::endl << std::endl;
 		
 		std::cout << "Cadastro realizado e salvo." << std::endl << std::endl;
 	}
@@ -124,4 +104,25 @@ void Cliente::add_cliente(std::string cpf, std::string nome, int idade, std::str
 	}
 
 	clientes_out.close();
+}
+
+void Cliente::cadastro(std::string cpf) {
+	std::string nome, email;
+	int idade, socio;
+
+	std::cout << "Nome Completo: ";
+	std::cin.ignore();
+	getline(std::cin, nome);
+	
+	std::cout << "Idade: ";
+	std::cin >> idade;
+
+	std::cout << "Email: ";
+	std::cin >> email;
+
+	std::cout << "Socio? (1 se sim, 0 se não): ";
+	std::cin >> socio;
+	std::cout << std::endl;
+	
+	add_cliente(cpf, nome, idade, email, socio);
 }
