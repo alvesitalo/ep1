@@ -1,7 +1,7 @@
 #ifndef PROGRAMA_HPP
 #define PROGRAMA_HPP
 
-#include <iostream>
+#include <climits>
 
 #include "cliente.hpp"
 #include "clientela.hpp"
@@ -10,19 +10,17 @@
 #include "carrinho.hpp"
 
 class Programa {
-    private:
-        bool inicio;
-        
     public:
+        bool inicio;
+
         Programa();
         ~Programa();
 
         void menu();
-        void modo_venda();
-        void modo_estoque();
-        void modo_recomendacao();
+        void modo_venda(Estoque &deposito);
+        void modo_estoque(Estoque &deposito);
+        void modo_recomendacao(Estoque &deposito);
         int getint(int min, int max);
-        void run();
 
 };
 

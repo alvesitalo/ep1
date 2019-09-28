@@ -1,8 +1,10 @@
 523124
 Italo Alves
-19
+20
 italo-ko@gmail.com
 1
+acessorios 1
+eletronicos 1
 - 0
 
 9457
@@ -10,9 +12,10 @@ Tiago
 18
 tiagoo@gmail.com
 1
-alimentos 1
-doces 1
-festa 1
+alcoolicos 1
+bebidas 2
+festa 2
+refrigerante 1
 - 0
 
 7356
@@ -20,6 +23,11 @@ Ana Aparecida
 21
 cidinha_ana@hotmail.com
 0
+alcoolicos 1
+alimentos 1
+bebidas 1
+doces 1
+festa 2
 - 0
 
 82357
@@ -27,6 +35,9 @@ Debora
 18
 debora0o@gmail.com
 1
+alimentos 2
+festa 2
+salgados 2
 - 0
 
 2343
@@ -34,6 +45,9 @@ Emanuelle Parmagnani
 22
 manu@outlook.com
 0
+computador 1
+diversao 1
+jogos 1
 - 0
 
 234435
@@ -41,6 +55,10 @@ Lais
 19
 laix@hotmail.com
 1
+alimentos 1
+doces 1
+festa 3
+papelaria 2
 - 0
 
 24235
@@ -55,6 +73,14 @@ Luiz Gui P
 25
 guiga@gmail.com
 1
+celulares 1
+eletronicos 1
+aniversario 1
+naturais 1
+papelaria 1
+smartphones 1
+utilidades 1
+velhice 1
 - 0
 
 23432535
@@ -62,6 +88,9 @@ Juliana Zago
 18
 juzago@gmail.com
 0
+acessorios 1
+celulares 1
+eletronicos 1
 - 0
 
 75348
@@ -69,5 +98,8 @@ Ana Julia
 19
 anajulia@aaaaa.com
 1
+alcoolicos 2
+bebidas 2
+festa 2
 - 0
 

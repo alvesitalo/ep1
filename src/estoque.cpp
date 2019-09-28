@@ -8,19 +8,25 @@ Estoque::Estoque() {
 }
 Estoque::~Estoque(){}
 
-std::vector<Produto *> Estoque::get_produtos() {
+std::vector <Produto *> Estoque::get_produtos() {
     return this->produtos;
 }
 
-void Estoque::add_produto(Produto * produto) {
-    this->produtos.push_back(produto);
+Produto * Estoque::get_produto(int id) {
+    for (Produto * produto: get_produtos()) {
+		if (id == produto->get_id()) {
+			return produto;
+		}
+	}
+	
+	return new Produto;
 }
 
 void Estoque::carrega_produtos() {
     std::string nome, cat;
 	int id, quantidade;
 	double preco;
-	std::vector<std::string> categorias;
+	std::vector <std::string> categorias;
 
 	std::ifstream produtos_in;
 	produtos_in.open("assets/produtos.txt");
@@ -44,17 +50,62 @@ void Estoque::carrega_produtos() {
 		}
 	}
 	else {
-		std::cout << "Nao e possivel abrir o arquivo de produtos." << std::endl;
+		std::cout << "Não é possivel abrir o arquivo de produtos." << std::endl;
+		throw(-1);
 	}
 	
 	produtos_in.close();
 }
 
-void Estoque::imprime_produtos() {
+bool Estoque::produto_existe(int id) {
+	for (Produto * produto: get_produtos()) {
+		if (id == produto->get_id()) {
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+void Estoque::cadastrar_produto(int id) {
+	std::string nome, categoria;
+	double preco;
+	int estoque;
+	std::vector <std::string> categorias;
+
+	std::cout << "Nome do produto: ";
+	std::cin.ignore();
+	getline(std::cin, nome);
+	
+	std::cout << "Preço: ";
+	std::cin >> preco;
+
+	std::cout << "Quantidade: ";
+	std::cin >> estoque;
+
+	std::cout << "Categoria(s): (Digite cada palavra separada por enter, digite 0 para terminar)" << std::endl;
+	std::cin >> categoria;
+
+	while (categoria != "0") {
+		categorias.push_back(categoria);
+		std::cin >> categoria;
+	}
+
+	std::cout << std::endl;
+	
+	add_produto(new Produto(id, nome, preco, estoque, categorias));
+	atualiza_estoque();
+}
+
+void Estoque::add_produto(Produto * produto) {
+    this->produtos.push_back(produto);
+}
+
+void Estoque::imprime_produtos(int modo) { 
     std::cout << "\tProdutos em estoque:" << std::endl << std::endl;
 
 	for (Produto * produto: get_produtos()) {
-        if (produto->get_estoque() > 0) {
+        if (produto->get_estoque() > 0 || modo == 2) {
             std::cout << std::fixed << std::showpoint << std::setprecision(2)
                     << "\t" << std::left << std::setw(30)
                     << produto->get_nome()
@@ -99,7 +150,7 @@ void Estoque::atualiza_estoque() {
 	}
 
 	if (!escrita_realizada) {
-		std::cout << "Acesso negado ao tentar salvar." << std::endl;
+		std::cout << "Acesso negado ao tentar salvar. As alterações não foram salvas." << std::endl;
 	}
 
 	produtos_out.close();

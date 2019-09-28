@@ -5,19 +5,25 @@ Clientela::Clientela() {
 }
 Clientela::~Clientela() {}
 
-std::vector<Cliente *> Clientela::get_clientes() {
+std::vector <Cliente *> Clientela::get_clientes() {
     return this->clientes;
 }
 
-void Clientela::add_cliente(Cliente * pessoa) {
-    this->clientes.push_back(pessoa);
+Cliente * Clientela::get_cliente(std::string cpf) {
+	for (Cliente * cliente: get_clientes()) {
+		if (cpf == cliente->get_cpf()) {
+			return cliente;
+		}
+	}
+	
+	return new Cliente;
 }
 
 void Clientela::carrega_clientes() {
     std::string cpf, nome, email;
 	int idade, socio;
 
-	std::map<std::string, int> categorias;
+	std::map <std::string, int> categorias;
 	std::string cat;
 	int qnt;
 	
@@ -38,11 +44,12 @@ void Clientela::carrega_clientes() {
 				clientes_in >> cat >> qnt;
 			}
 
-			this->clientes.push_back(new Cliente(cpf, nome, idade, email, socio, categorias));
+			add_cliente(new Cliente(cpf, nome, idade, email, socio, categorias));
 		}
 	}
 	else {
-		std::cout << "Nao e possivel abrir o arquivo de clientes." << std::endl;
+		std::cout << "Não é possivel abrir o arquivo de clientes." << std::endl;
+		throw(-1);
 	}
 	
 	clientes_in.close();
@@ -51,14 +58,6 @@ void Clientela::carrega_clientes() {
 bool Clientela::cliente_existe(std::string cpf) {
 	for (Cliente * cliente: get_clientes()) {
 		if (cpf == cliente->get_cpf()) {
-
-			pessoa->set_cpf(cliente->get_cpf());
-			pessoa->set_nome(cliente->get_nome());
-			pessoa->set_idade(cliente->get_idade());
-			pessoa->set_email(cliente->get_email());
-			pessoa->set_socio(cliente->is_socio());
-			pessoa->set_categorias(cliente->get_categorias());
-
 			return true;
 		}
 	}
@@ -66,7 +65,34 @@ bool Clientela::cliente_existe(std::string cpf) {
 	return false;
 }
 
-void Clientela::atualiza_recomendacao() {
+void Clientela::cadastrar_cliente(std::string cpf) {
+	std::string nome, email;
+	int idade, socio;
+	std::map <std::string, int> categorias = {};
+
+	std::cout << "Nome Completo: ";
+	std::cin.ignore();
+	getline(std::cin, nome);
+	
+	std::cout << "Idade: ";
+	std::cin >> idade;
+
+	std::cout << "Email: ";
+	std::cin >> email;
+
+	std::cout << "Socio? (1 se sim, 0 se não): ";
+	std::cin >> socio;
+	std::cout << std::endl;
+	
+	add_cliente(new Cliente(cpf, nome, idade, email, socio, categorias));
+	atualiza_clientela();
+}
+
+void Clientela::add_cliente(Cliente * pessoa) {
+    this->clientes.push_back(pessoa);
+}
+
+void Clientela::atualiza_clientela() {
 	bool escrita_realizada = true;
 	
 	std::ofstream clientes_out;
@@ -89,16 +115,11 @@ void Clientela::atualiza_recomendacao() {
 		else {
 			escrita_realizada = false;
 		}
-
-		for(auto cat: cliente->get_categorias()) {
-			std::cout << "Cliente:" << cat.first << " " << cat.second << std::endl;
-		}
 	}
 
 	if (!escrita_realizada) {
-		std::cout << "Acesso negado ao tentar salvar." << std::endl;
+		std::cout << "Acesso negado ao tentar salvar. As alterações não foram salvas." << std::endl;
 	}
 
 	clientes_out.close();
-
 }

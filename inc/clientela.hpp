@@ -5,18 +5,20 @@
 
 class Clientela {
     private:
-        std::vector<Cliente *> clientes;
+        std::vector <Cliente *> clientes;
         
     public:
         Clientela();
         ~Clientela();
 
-        std::vector<Cliente *> get_clientes();
-
-        void add_cliente(Cliente * pessoa);
+        std::vector <Cliente *> get_clientes();
+        Cliente * get_cliente(std::string cpf);
         void carrega_clientes();
+        
         bool cliente_existe(std::string cpf);
-        void atualiza_recomendacao();
+        void cadastrar_cliente(std::string cpf);
+        void add_cliente(Cliente * pessoa);
+        void atualiza_clientela();
         
 };
 

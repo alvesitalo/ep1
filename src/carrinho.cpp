@@ -6,37 +6,34 @@ Carrinho::Carrinho() {
 	desconto = 0.0;
 	total = 0.0;
 }
-Carrinho::~Carrinho(){}
+Carrinho::~Carrinho() {}
 
-std::vector<Produto *> Carrinho::get_produtos() {
-    return this->produtos;
-}
 double Carrinho::get_valor_produtos() {
     return this->valor_produtos;
 }
+
 double Carrinho::get_desconto() {
     return this->desconto;
 }
+
 double Carrinho::get_total() {
     return this->total;
 }
 
-void Carrinho::add_produto(Produto * produto) {
-	produto->set_quantidade(1);
-    this->produtos.push_back(produto);
-}
 void Carrinho::add_valor_produto(int valor) {
 	this->valor_produtos += valor;
 }
+
 void Carrinho::set_desconto(int desconto) {
 	this->desconto = desconto;
 }
+
 void Carrinho::set_total(int total) {
 	this->total = total;
 }
 
-void Carrinho::imprime_carrinho(bool socio) {
-	std::cout << "\n\tProdutos no carrinho (" << get_produtos().size() << "):" << std::endl << std::endl;
+void Carrinho::imprime_produtos(bool socio) {
+	std::cout << "\tProdutos no carrinho (" << get_produtos().size() << "):" << std::endl << std::endl;
 
 	for (Produto * produto: this->produtos) {
 		std::cout << std::fixed << std::showpoint << std::setprecision(2)
@@ -108,7 +105,7 @@ void Carrinho::atualiza_carrinho(int id, std::vector <Produto *> estoque) {
 	}
 
 	if (!produto_existe) {
-		std::cout << "Nao existe este item no estoque."  << std::endl << std::endl;
+		std::cout << "Não existe este item no estoque."  << std::endl << std::endl;
 	}
 }
 
@@ -122,10 +119,11 @@ bool Carrinho::possui_estoque() {
 }
 
 void Carrinho::cancelar_compra() {
+	this->produtos.clear();
 	std::cout << "Carrinho encerrado." << std::endl << std::endl;
 }
 
 void Carrinho::finalizar_compra() {
-	std::cout << "Compra realizada! Obrigado pela preferencia." << std::endl;
-
+	this->produtos.clear();
+	std::cout << "Compra realizada! Obrigado pela preferência." << std::endl << std::endl;
 }

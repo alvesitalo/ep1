@@ -12,11 +12,11 @@ class Produto {
         double preco;
         int estoque;
         int quantidade;
-        std::vector<std::string> categorias;
+        std::vector <std::string> categorias;
 
     public:
         Produto();
-        Produto(int id, std::string nome, double preco, int estoque, std::vector<std::string> categorias);
+        Produto(int id, std::string nome, double preco, int estoque, std::vector <std::string> categorias);
         ~Produto();
 
         int get_id();
@@ -24,7 +24,7 @@ class Produto {
         double get_preco();
         int get_estoque();
         int get_quantidade();
-        std::vector<std::string> get_categorias();
+        std::vector <std::string> get_categorias();
         
         void set_id(int id);
         void set_nome(std::string nome);

@@ -1,16 +1,16 @@
 1
 Bolo de aniversario
 50.00
-0
+2
 alimentos
 doces
-festa
+aniversario
 -
 
 2
 Refri Sem Acucar
 5.00
-0
+6
 bebidas
 refrigerante
 festa
@@ -19,9 +19,71 @@ festa
 3
 Cento de Salgado
 39.99
-922
+298
 alimentos
 salgados
 festa
+-
+
+4
+Papel de presente
+3.00
+1
+escolar
+papelaria
+aniversario
+-
+
+5
+Celular Xiau-mi 64GB
+1000.00
+199
+eletronicos
+smartphones
+celulares
+-
+
+6
+Carregador branco de celular
+30.00
+9
+eletronicos
+acessorios
+celulares
+-
+
+7
+Fone de ouvido Bom
+25.00
+7
+eletronicos
+acessorios
+-
+
+8
+Bebida com alcool
+15.00
+3
+bebidas
+alcoolicos
+festa
+-
+
+9
+The FGAs - O Jogo
+250.49
+19
+jogos
+diversao
+computador
+-
+
+10
+Gel p/ dores - 3 idade
+15.99
+14
+utilidades
+naturais
+velhice
 -
 

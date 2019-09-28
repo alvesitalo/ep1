@@ -1,8 +1,12 @@
 #include "programa.hpp"
 
 int main() {
-	Programa mercado;
-	mercado.run();
+	Programa supermercado;
+
+	do {
+        supermercado.menu();
+	}
+	while (supermercado.inicio);
 
 	return 0;
 }
