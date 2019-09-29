@@ -190,8 +190,14 @@ void Programa::modo_estoque(Estoque &deposito) {
                 case 0:
                     break;
                 case 1:
-                    deposito.cadastrar_produto(id);
-                    break;
+                    if (id == 0) {
+                        std::cout << "Nenhum produto pode ter ID igual a 0" << std::endl;
+                        break;
+                    }
+                    else {
+                        deposito.cadastrar_produto(id);
+                        break;
+                    }
             }
         }
     

@@ -1,8 +1,9 @@
 #ifndef ESTOQUE_HPP
 #define ESTOQUE_HPP
 
-#include <iostream>
-#include <vector>
+#include <iomanip>
+#include <fstream>
+
 #include "produto.hpp"
 
 class Estoque {

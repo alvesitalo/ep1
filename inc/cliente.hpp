@@ -2,7 +2,6 @@
 #define CLIENTE_HPP
 
 #include <map>
-#include <fstream>
 #include <functional>
 
 #include "produto.hpp"

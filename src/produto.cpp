@@ -1,7 +1,3 @@
-#include <string>
-#include <vector>
-#include <fstream>
-
 #include "produto.hpp"
 
 Produto::Produto() {
@@ -17,7 +13,7 @@ Produto::Produto(int id, std::string nome, double preco, int estoque, std::vecto
     this->nome = nome;
     this->preco = preco;
     this->estoque = estoque;
-    this->quantidade = 0;
+    this->quantidade = 1;
     this->categorias = categorias;
 }
 Produto::~Produto() {}

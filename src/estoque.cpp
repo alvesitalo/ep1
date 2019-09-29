@@ -1,6 +1,3 @@
-#include <iomanip>
-#include <fstream>
-
 #include "estoque.hpp"
 
 Estoque::Estoque() {

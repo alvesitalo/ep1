@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Programa de Venda: LEIA ME - Programa de Venda v1.0</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Programa de Venda
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('index.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">LEIA ME - <a class="el" href="class_programa.html">Programa</a> de Venda v1.0 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>O <a class="el" href="class_programa.html">Programa</a> de Venda é um <em>software</em> para organização de vendas, clientes e estoque de produtos em um comércio.</p>
+<h2>Dependências</h2>
+<p>Bibliotecas de C++ necessárias:</p>
+<div class="fragment"><div class="line">&lt;climits&gt;</div><div class="line">&lt;fstream&gt;</div><div class="line">&lt;functional&gt;</div><div class="line">&lt;iomanip&gt;</div><div class="line">&lt;iostream&gt;</div><div class="line">&lt;map&gt;</div><div class="line">&lt;string&gt;</div><div class="line">&lt;vector&gt;</div></div><!-- fragment --><h2>Instalação</h2>
+<p>No terminal digite o seguinte comando:</p>
+<div class="fragment"><div class="line">make</div></div><!-- fragment --><p>E depois digite o outro comando:</p>
+<div class="fragment"><div class="line">make run</div></div><!-- fragment --><p>Se for feita alguma alteração nos arquivos, é necessário entrar com o seguinte comando antes dos outros anteriores:</p>
+<div class="fragment"><div class="line">make clean</div></div><!-- fragment --><h2>Utilização</h2>
+<h3>Menu</h3>
+<pre class="fragment">    ***************************************************
+    *     Bem vindo ao seu Programa de Venda v1.0     *
+    *             (c) 1991 - Ítalo Alves              *
+    ***************************************************
+
+    Para entrar no Modo Venda digite 1
+    Para entrar no Modo Estoque digite 2
+    Para entrar no Modo Recomendação digite 3
+    Para mais informações abra o arquivo LEIAME.
+</pre><ul>
+<li>A tela inicial do programa é o <b>Menu</b>, nele você pode entrar em qualquer Modo: basta digitar o número correspondente e teclar <em>Enter</em>.</li>
+<li>Para todas as opções em qualquer Modo se digita o número e pressiona a tecla <em>Enter</em>. <hr/>
+</li>
+</ul>
+<h3>1. Modo Venda</h3>
+<pre class="fragment">[Modo Venda]
+
+    Produtos em estoque:
+
+    Produto 1                     Valor: $10.00               Estoque: 5                   ID: 1
+    Produto 2                     Valor: $5.00                Estoque: 2                   ID: 2
+    Produto 3                     Valor: $1.99                Estoque: 10                  ID: 3
+
+Adicione produtos ao carrinho inserindo o código (ID)
+Digite somente 0 para ir ao carrinho.
+</pre><ul>
+<li>Ao entrar no <b>Modo Venda</b>, é exibido os produtos em estoque que estão prontos para a compra.</li>
+<li>Para adicionar o produto ao carrinho, digite o ID correspondente e tecle <em>Enter</em>.</li>
+<li>Digite 0 no lugar de ID do produto para ir ao carrinho. <br />
+</li>
+</ul>
+<pre class="fragment">    Insira o código do produto: 1
+    Item 'Produto 1' adicionado.
+
+    Insira o código do produto: 2
+    Item 'Produto 2' adicionado.
+
+    Insira o código do produto: 2
+    Item 'Produto 2' acrescentado.
+
+    Insira o código do produto: 0
+</pre><ul>
+<li>Após adicionar os produtos desejados e ter digitado 0, o carrinho é mostrado. <br />
+</li>
+</ul>
+<pre class="fragment">    Produtos no carrinho (2):
+
+    Produto 1                     Valor: $10.00               Quantidade: 1                   ID: 1
+    Produto 2                     Valor: $5.00                Quantidade: 2                   ID: 2                   
+
+    Total: $15.00               Valor dos produtos: $15.00               Desconto: $0.00                
+
+Para seguir com o checkout digite 0
+Para voltar e continuar adicionando produtos, digite 1
+Para cancelar a compra e voltar ao menu, digite 2
+</pre><ul>
+<li>Assumindo que a compra está correta, digitando 0 é prosseguido o checkout. <br />
+</li>
+</ul>
+<pre class="fragment">Insira o CPF do cliente: 1234 
+
+Cliente: Sem Nome
+Email: sem-nome@email.com
+Sócio com 15% de desconto
+
+    Produtos no carrinho (2):
+
+    Bolo de aniversario           Valor: $10.00               Quantidade: 1                   ID: 1                   
+    Refri Sem Acucar              Valor: $5.00                Quantidade: 2                   ID: 2                   
+
+    Total: $17.00               Valor dos produtos: $20.00               Desconto: $3.00                
+
+Escolha o método de pagamento:
+1 - Dinheiro
+2 - Cartão
+</pre><ul>
+<li>É solicitado o CPF do cliente, se ele tiver correto, será mostrará o carrinho; se não, o cliente será cadastrado.</li>
+<li>O CPF deve ser digitado por <b>apenas números</b>.</li>
+<li>Se o cliente for sócio, 15% de desconto será aplicado ao carrinho.</li>
+<li>Depois de mostrado o carrinho, é escolhido as formas de pagamento: Dinheiro ou Cartão. <br />
+</li>
+</ul>
+<pre class="fragment">Digite o valor recebido: $
+</pre><ul>
+<li>Se o método escolhido for Dinheiro, o atendente digitará o dinheiro recebido.</li>
+<li>Logo após, será mostrado o troco. <br />
+</li>
+</ul>
+<pre class="fragment">Compra realizada! Obrigado pela preferência.
+</pre><ul>
+<li>Se o método escolhido for Cartão, é solicitado que se passe o cartão e logo a compra é finalizada.</li>
+<li>As categorias de cada produto e a quantidade são adicionadas ao cliente que fez a compra.</li>
+<li>O estoque dos produtos é alterado. <hr/>
+</li>
+</ul>
+<h3>2. Modo <a class="el" href="class_estoque.html">Estoque</a></h3>
+<pre class="fragment">[Modo Estoque]
+
+    Produtos em estoque:
+
+    Produto 1                     Valor: $10.00               Estoque: 1                   ID: 1
+    Produto 2                     Valor: $5.00                Estoque: 2                   ID: 2
+
+Insira o código do produto: 
+</pre><ul>
+<li>Ao entrar no <b>Modo <a class="el" href="class_estoque.html">Estoque</a></b>, é exibido todos os produtos que existem no estoque.</li>
+<li>Para cadastrar um novo produto, digite um ID diferente dos produtos mostrados.</li>
+<li>Para fazer modificações em um produto, como alterar estoque ou valor, digite o ID do produto. <br />
+</li>
+</ul>
+<pre class="fragment">Item: Produto 1
+Preço: $10.00
+Quantidade no estoque: 1
+Categoria(s): categoria1, categoria2, categoria3.
+
+Alterar o nome: digite 1
+Alterar o preço: digite 2
+Alterar o estoque: digite 3
+Digite 0 para voltar ao menu.
+</pre><ul>
+<li>Com o produto identificado é possível fazer as modificações, exemplo: Alterar o nome, digitando 1 <br />
+</li>
+</ul>
+<pre class="fragment">1
+
+Novo nome: Produto 1234
+
+Alterar o nome: digite 1
+Alterar o preço: digite 2
+Alterar o estoque: digite 3
+Digite 0 para voltar ao menu.
+</pre><ul>
+<li>Após fazer a alteração as opções aparecerão novamente, se tiver concluído basta digitar 0 e voltar ao <b>Menu</b> <hr/>
+</li>
+</ul>
+<h3>3. Modo Recomendação</h3>
+<pre class="fragment">[Modo de Recomendação]
+
+Insira o CPF do cliente: 1234
+
+Cliente: Sem Nome
+Idade: 32
+
+Produtos recomendados para o cliente:
+
+Organizados por categoria mais comprada e ordem alfabética:
+- Produto 1
+- Produto 2
+- Produto 3
+</pre><ul>
+<li>No <b>Modo Recomendação</b>, é sugerido ao cliente alguns produtos que podem ser de interesse, de acordo com as categorias mais compradas por ele anteriormente.</li>
+<li>É exibido até 10 produtos organizados pela relevância e por ordem lexicográfica.</li>
+<li>Para isso, digite o número do CPF do cliente. <br />
+</li>
+</ul>
+<pre class="fragment">[Modo de Recomendação]
+
+Insira o CPF do cliente: 4321
+
+Nenhum cliente encontrado com esse CPF
+Digite 0 para ir ao menu, ou 1 para digitar novamente.
+</pre><ul>
+<li>Caso não exista um cliente com o CPF informado, é exibida uma mensagem de erro. <br />
+</li>
+</ul>
+<h2>Resolvendo erros</h2>
+<h4>Não é possivel abrir o arquivo de clientes</h4>
+<ul>
+<li>Significa que o <em>software</em> não foi capaz de encontrar o arquivo de clientes. Crie um arquivo vazio <b>clientes.txt</b> na pasta <b>assets</b>/</li>
+</ul>
+<h4>Não é possivel abrir o arquivo de produtos</h4>
+<ul>
+<li>Significa que o <em>software</em> não foi capaz de encontrar o arquivo de produtos. Crie um arquivo vazio <b>produtos.txt</b> na pasta <b>assets</b>/</li>
+</ul>
+<h4>Acesso negado ao tentar salvar. As alterações não foram salvas</h4>
+<ul>
+<li>O <em>software</em> <b>não possui permissões de pasta</b> no local onde foi baixado, para salvar ou editar arquivos. Copie o programa para outro local ou revise as permissões</li>
+</ul>
+<h4><a class="el" href="class_cliente.html">Cliente</a> ou <a class="el" href="class_produto.html">Produto</a> não encontrados quando se tem certeza do seu ID</h4>
+<ul>
+<li>Pode ser um erro de digitação ou de caracteres inválidos. Abra o arquivo <b>clientes.txt</b> ou <b>produtos.txt</b> e revise os dados</li>
+</ul>
+<h2>Changelog</h2>
+<p>1.0:</p>
+<ul>
+<li>Correção de alguns <em>bugs</em>.</li>
+<li>Documentação na pasta doc.</li>
+</ul>
+<h2>Créditos</h2>
+<p>Autores:</p>
+<ul>
+<li>Ítalo Alves - 180113666</li>
+</ul>
+<p>Proposta do EP1: <a href="https://gitlab.com/oofga/eps/eps_2019_2/ep1">https://gitlab.com/oofga/eps/eps_2019_2/ep1</a> Repositório do EP1: <a href="https://gitlab.com/italooko/ep1/">https://gitlab.com/italooko/ep1/</a></p>
+<h2>Licença</h2>
+<p><a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL v3.0</a> </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Gerado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

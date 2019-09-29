@@ -1,0 +1,334 @@
+O \hyperlink{class_programa}{Programa} de Venda é um {\itshape software} para organização de vendas, clientes e estoque de produtos em um comércio.
+
+\subsection*{Dependências}
+
+Bibliotecas de C++ necessárias\+:
+
+
+\begin{DoxyCode}
+<climits>
+<fstream>
+<functional>
+<iomanip>
+<iostream>
+<map>
+<string>
+<vector>
+\end{DoxyCode}
+
+
+\subsection*{Instalação}
+
+No terminal digite o seguinte comando\+:
+
+
+\begin{DoxyCode}
+make
+\end{DoxyCode}
+
+
+E depois digite o outro comando\+:
+
+
+\begin{DoxyCode}
+make run
+\end{DoxyCode}
+
+
+Se for feita alguma alteração nos arquivos, é necessário entrar com o seguinte comando antes dos outros anteriores\+:
+
+
+\begin{DoxyCode}
+make clean
+\end{DoxyCode}
+
+
+\subsection*{Utilização}
+
+\subsubsection*{Menu}
+
+\begin{DoxyVerb}    ***************************************************
+    *     Bem vindo ao seu Programa de Venda v1.0     *
+    *             (c) 1991 - Ítalo Alves              *
+    ***************************************************
+
+    Para entrar no Modo Venda digite 1
+    Para entrar no Modo Estoque digite 2
+    Para entrar no Modo Recomendação digite 3
+    Para mais informações abra o arquivo LEIAME.
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item A tela inicial do programa é o {\bfseries Menu}, nele você pode entrar em qualquer Modo\+: basta digitar o número correspondente e teclar {\itshape Enter}.
+\item Para todas as opções em qualquer Modo se digita o número e pressiona a tecla {\itshape Enter}. 
+
+
+\end{DoxyItemize}
+
+\subsubsection*{1. Modo Venda}
+
+\begin{DoxyVerb}[Modo Venda]
+
+    Produtos em estoque:
+
+    Produto 1                     Valor: $10.00               Estoque: 5                   ID: 1
+    Produto 2                     Valor: $5.00                Estoque: 2                   ID: 2
+    Produto 3                     Valor: $1.99                Estoque: 10                  ID: 3
+
+Adicione produtos ao carrinho inserindo o código (ID)
+Digite somente 0 para ir ao carrinho.
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Ao entrar no {\bfseries Modo Venda}, é exibido os produtos em estoque que estão prontos para a compra.
+\item Para adicionar o produto ao carrinho, digite o ID correspondente e tecle {\itshape Enter}.
+\item Digite 0 no lugar de ID do produto para ir ao carrinho. ~\newline
+
+\end{DoxyItemize}
+
+\begin{DoxyVerb}    Insira o código do produto: 1
+    Item 'Produto 1' adicionado.
+
+    Insira o código do produto: 2
+    Item 'Produto 2' adicionado.
+
+    Insira o código do produto: 2
+    Item 'Produto 2' acrescentado.
+
+    Insira o código do produto: 0
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Após adicionar os produtos desejados e ter digitado 0, o carrinho é mostrado. ~\newline
+
+\end{DoxyItemize}
+
+\begin{DoxyVerb}    Produtos no carrinho (2):
+
+    Produto 1                     Valor: $10.00               Quantidade: 1                   ID: 1
+    Produto 2                     Valor: $5.00                Quantidade: 2                   ID: 2                   
+
+    Total: $15.00               Valor dos produtos: $15.00               Desconto: $0.00                
+
+Para seguir com o checkout digite 0
+Para voltar e continuar adicionando produtos, digite 1
+Para cancelar a compra e voltar ao menu, digite 2
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Assumindo que a compra está correta, digitando 0 é prosseguido o checkout. ~\newline
+
+\end{DoxyItemize}
+
+\begin{DoxyVerb}Insira o CPF do cliente: 1234 
+
+Cliente: Sem Nome
+Email: sem-nome@email.com
+Sócio com 15% de desconto
+
+    Produtos no carrinho (2):
+
+    Bolo de aniversario           Valor: $10.00               Quantidade: 1                   ID: 1                   
+    Refri Sem Acucar              Valor: $5.00                Quantidade: 2                   ID: 2                   
+
+    Total: $17.00               Valor dos produtos: $20.00               Desconto: $3.00                
+
+Escolha o método de pagamento:
+1 - Dinheiro
+2 - Cartão
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item É solicitado o C\+PF do cliente, se ele tiver correto, será mostrará o carrinho; se não, o cliente será cadastrado.
+\item O C\+PF deve ser digitado por {\bfseries apenas números}.
+\item Se o cliente for sócio, 15\% de desconto será aplicado ao carrinho.
+\item Depois de mostrado o carrinho, é escolhido as formas de pagamento\+: Dinheiro ou Cartão. ~\newline
+
+\end{DoxyItemize}
+
+\begin{DoxyVerb}Digite o valor recebido: $
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Se o método escolhido for Dinheiro, o atendente digitará o dinheiro recebido.
+\item Logo após, será mostrado o troco. ~\newline
+
+\end{DoxyItemize}
+
+\begin{DoxyVerb}Compra realizada! Obrigado pela preferência.
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Se o método escolhido for Cartão, é solicitado que se passe o cartão e logo a compra é finalizada.
+\item As categorias de cada produto e a quantidade são adicionadas ao cliente que fez a compra.
+\item O estoque dos produtos é alterado. 
+
+
+\end{DoxyItemize}
+
+\subsubsection*{2. Modo \hyperlink{class_estoque}{Estoque}}
+
+\begin{DoxyVerb}[Modo Estoque]
+
+    Produtos em estoque:
+
+    Produto 1                     Valor: $10.00               Estoque: 1                   ID: 1
+    Produto 2                     Valor: $5.00                Estoque: 2                   ID: 2
+
+Insira o código do produto: 
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Ao entrar no {\bfseries Modo \hyperlink{class_estoque}{Estoque}}, é exibido todos os produtos que existem no estoque.
+\item Para cadastrar um novo produto, digite um ID diferente dos produtos mostrados.
+\item Para fazer modificações em um produto, como alterar estoque ou valor, digite o ID do produto. ~\newline
+
+\end{DoxyItemize}
+
+\begin{DoxyVerb}Item: Produto 1
+Preço: $10.00
+Quantidade no estoque: 1
+Categoria(s): categoria1, categoria2, categoria3.
+
+Alterar o nome: digite 1
+Alterar o preço: digite 2
+Alterar o estoque: digite 3
+Digite 0 para voltar ao menu.
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Com o produto identificado é possível fazer as modificações, exemplo\+: Alterar o nome, digitando 1 ~\newline
+
+\end{DoxyItemize}
+
+\begin{DoxyVerb}1
+
+Novo nome: Produto 1234
+
+Alterar o nome: digite 1
+Alterar o preço: digite 2
+Alterar o estoque: digite 3
+Digite 0 para voltar ao menu.
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Após fazer a alteração as opções aparecerão novamente, se tiver concluído basta digitar 0 e voltar ao {\bfseries Menu} 
+
+
+\end{DoxyItemize}
+
+\subsubsection*{3. Modo Recomendação}
+
+\begin{DoxyVerb}[Modo de Recomendação]
+
+Insira o CPF do cliente: 1234
+
+Cliente: Sem Nome
+Idade: 32
+
+Produtos recomendados para o cliente:
+
+Organizados por categoria mais comprada e ordem alfabética:
+- Produto 1
+- Produto 2
+- Produto 3
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item No {\bfseries Modo Recomendação}, é sugerido ao cliente alguns produtos que podem ser de interesse, de acordo com as categorias mais compradas por ele anteriormente.
+\item É exibido até 10 produtos organizados pela relevância e por ordem lexicográfica.
+\item Para isso, digite o número do C\+PF do cliente. ~\newline
+
+\end{DoxyItemize}
+
+\begin{DoxyVerb}[Modo de Recomendação]
+
+Insira o CPF do cliente: 4321
+
+Nenhum cliente encontrado com esse CPF
+Digite 0 para ir ao menu, ou 1 para digitar novamente.
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item Caso não exista um cliente com o C\+PF informado, é exibida uma mensagem de erro. ~\newline
+
+\end{DoxyItemize}
+
+\subsection*{Resolvendo erros}
+
+\paragraph*{Não é possivel abrir o arquivo de clientes}
+
+
+\begin{DoxyItemize}
+\item Significa que o {\itshape software} não foi capaz de encontrar o arquivo de clientes. Crie um arquivo vazio {\bfseries clientes.\+txt} na pasta {\bfseries assets}/
+\end{DoxyItemize}
+
+\paragraph*{Não é possivel abrir o arquivo de produtos}
+
+
+\begin{DoxyItemize}
+\item Significa que o {\itshape software} não foi capaz de encontrar o arquivo de produtos. Crie um arquivo vazio {\bfseries produtos.\+txt} na pasta {\bfseries assets}/
+\end{DoxyItemize}
+
+\paragraph*{Acesso negado ao tentar salvar. As alterações não foram salvas}
+
+
+\begin{DoxyItemize}
+\item O {\itshape software} {\bfseries não possui permissões de pasta} no local onde foi baixado, para salvar ou editar arquivos. Copie o programa para outro local ou revise as permissões
+\end{DoxyItemize}
+
+\paragraph*{\hyperlink{class_cliente}{Cliente} ou \hyperlink{class_produto}{Produto} não encontrados quando se tem certeza do seu ID}
+
+
+\begin{DoxyItemize}
+\item Pode ser um erro de digitação ou de caracteres inválidos. Abra o arquivo {\bfseries clientes.\+txt} ou {\bfseries produtos.\+txt} e revise os dados
+\end{DoxyItemize}
+
+\subsection*{Changelog}
+
+1.\+0\+:
+
+
+\begin{DoxyItemize}
+\item Correção de alguns {\itshape bugs}.
+\item Documentação na pasta doc.
+\end{DoxyItemize}
+
+\subsection*{Créditos}
+
+Autores\+:
+
+
+\begin{DoxyItemize}
+\item Ítalo Alves -\/ 180113666
+\end{DoxyItemize}
+
+Proposta do E\+P1\+: \href{https://gitlab.com/oofga/eps/eps_2019_2/ep1}{\tt https\+://gitlab.\+com/oofga/eps/eps\+\_\+2019\+\_\+2/ep1} Repositório do E\+P1\+: \href{https://gitlab.com/italooko/ep1/}{\tt https\+://gitlab.\+com/italooko/ep1/}
+
+\subsection*{Licença}
+
+\href{https://www.gnu.org/licenses/gpl-3.0.en.html}{\tt G\+PL v3.\+0} 

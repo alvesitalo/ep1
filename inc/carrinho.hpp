@@ -1,8 +1,6 @@
 #ifndef CARRINHO_HPP
 #define CARRINHO_HPP
 
-#include <iomanip>
-#include <fstream>
 #include "produto.hpp"
 #include "estoque.hpp"
 

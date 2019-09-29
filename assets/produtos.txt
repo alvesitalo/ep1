@@ -1,7 +1,7 @@
 1
 Bolo de aniversario
 50.00
-2
+1
 alimentos
 doces
 aniversario
@@ -10,7 +10,7 @@ aniversario
 2
 Refri Sem Acucar
 5.00
-6
+4
 bebidas
 refrigerante
 festa
@@ -19,7 +19,7 @@ festa
 3
 Cento de Salgado
 39.99
-298
+296
 alimentos
 salgados
 festa
@@ -28,7 +28,7 @@ festa
 4
 Papel de presente
 3.00
-1
+0
 escolar
 papelaria
 aniversario
@@ -37,7 +37,7 @@ aniversario
 5
 Celular Xiau-mi 64GB
 1000.00
-199
+197
 eletronicos
 smartphones
 celulares
@@ -46,7 +46,7 @@ celulares
 6
 Carregador branco de celular
 30.00
-9
+7
 eletronicos
 acessorios
 celulares
@@ -55,7 +55,7 @@ celulares
 7
 Fone de ouvido Bom
 25.00
-7
+5
 eletronicos
 acessorios
 -
@@ -63,7 +63,7 @@ acessorios
 8
 Bebida com alcool
 15.00
-3
+1
 bebidas
 alcoolicos
 festa
@@ -72,7 +72,7 @@ festa
 9
 The FGAs - O Jogo
 250.49
-19
+17
 jogos
 diversao
 computador
@@ -81,7 +81,7 @@ computador
 10
 Gel p/ dores - 3 idade
 15.99
-14
+12
 utilidades
 naturais
 velhice
